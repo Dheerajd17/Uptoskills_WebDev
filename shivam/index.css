@@ -1,0 +1,217 @@
+*{
+  padding : 0px;
+  margin : 0px;
+  box-sizing : border-box;
+}
+.cont{
+  background-color : #f8f9fa;
+  display : flex;
+  gap : 15px;
+}
+.cont .hero .post-btn{
+  width : 100%;
+  display : absolute;
+}
+.cont .hero .post-btn .btn{
+  padding : 7px 15px;
+  color : white;
+  border : none;
+  background-color : #fb5607;
+  border-radius : 3px;
+}
+.cont .hero{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  gap : 16px;
+}
+.sidebar-container{
+  width : 250px;
+  height : 500px;
+  padding : 10px;
+  border-radius : 5px;
+  background-color : white;
+}
+
+.sidebar-container ul{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  justify-content : space-between;
+  list-style : none;
+}
+.sidebar-container ul li{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  justify-content : center;
+  margin : 5px;
+}
+.sidebar-container ul li a{
+  text-decoration : none;
+  color : black;
+}
+.sidebar-container ul li hr{
+  margin-top : 10px;
+  width : 200px;
+}
+
+.cards{
+  padding : 15px;
+  border-radius : 10px;
+  background-color : white;
+}
+.cards .container{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  justify-content : center;
+  padding : 5px;
+  border-radius : 5px;
+  margin : 17px 0;
+  box-shadow : 0px 0px 5px 4px #e9ecef;
+  /* margin-bottom : 10px; */
+}
+.uppercont{
+  max-width : 100%;
+  display : flex;
+  padding : 5px;
+  /* flex-wrap : wrap; */
+}
+.leftcont{
+  max-width : 100%;
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+  align-item : start;
+  padding : 5px;
+}
+.subleftupper{
+  /* min-width : 190px; */
+  /* width : 100%; */
+  display : flex;
+  justify-content : start;
+  align-item : center;
+  text-align : center;
+  gap : 5px;
+}
+.subleftupper span{
+  font-size : 12px;
+  margin : 5px 0 5px 0;
+  background-color : #06d6a0;
+  text-align : center;
+  color : white;
+  padding : 4px 5px 2px 5px;
+  border-radius : 3px;
+}
+.subleftupper p{
+  padding-top : 5px;
+}
+.subleftlower{
+  margin-top : 10px;
+}
+.subleftmid{
+  display : flex;
+}
+.subleftmid p{
+  color : gray;
+}
+.subleftmid .subleftmid-left  .del-btn{
+  padding : 8px 20px;
+  color : white;
+  background-color : #fb5607;
+  border : none;
+  border-radius : 5px;
+  margin : 15px 0;
+  font-weight : bold;
+}
+.subleftlower p{
+  color : gray;
+}
+.rightcont{
+  max-width : 30%;
+  /* padding : 5px; */
+  display : flex;
+  flex-direction : column;
+  justify-content : space-between;
+  align-items : center;
+}
+.subrightupper p{
+  text-wrap : wrap;
+}
+.subrightlower{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+}
+.candidate-btn{
+  height : 33px;
+  width : 140px;
+  padding : 0 20px;
+  color : white;
+  background-color : #06d6a0;
+  border : none;
+  border-radius : 5px;
+  font-weight : bold;
+}
+.container hr{
+  width : 98%;
+  height : 2px;
+  background-color : black;
+}
+.lowercont{
+  width : 100%;
+  display : flex;
+  justify-content : start;
+  padding : 0 5px;
+}
+.lowercont ul{
+  display : flex;
+  padding : 8px 0 2px 0;
+  flex-wrap : wrap;
+}
+.lowercont ul li{
+  list-style : none;
+  margin : 5px;
+}
+.lowercont ul li img{
+  width : 35px;
+  border-radius : 50%;
+}
+
+.navbar{
+  width : 100%;
+  background-color : white;
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+  border-radius : 5px;
+  box-shadow : 0 0 5px 5px #e9ecef;
+}
+.nav-left{
+  display : flex;
+}
+.nav-left .icon{
+  padding-top : 15px;
+}
+.nav-left .icon img{
+  width : 35px;
+  margin : 10px;
+
+}
+.nav-left .logo img{
+  width : 200px;
+  margin : 10px;
+}
+.nav-mid .tata-icon img{
+  width : 50px;
+}
+
+.nav-right{
+  display : flex;
+}
+.nav-right a{
+  margin : 10px;
+  text-decoration : none;
+  color : black;
+}
