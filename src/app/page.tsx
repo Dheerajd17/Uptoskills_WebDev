@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sidebar } from "@/components/ui/Sidebar"
-import { HomePage } from "@/components/ui/Homepage"
+import {HomePage} from "@/components/ui/Homepage";
 import { InternshipForm } from "@/components/ui/InternshipForm"
 import InternshipStatus from "@/components/ui/InternshipStatus";
 import { Footer } from "@/components/ui/Footer"

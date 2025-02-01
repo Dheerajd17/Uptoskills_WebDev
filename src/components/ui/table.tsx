@@ -1,61 +1,31 @@
-// src/components/ui/table.tsx
+"use client";
+
 import React from "react";
 
-interface TableProps {
-  headers?: string[]; // Made headers optional and added a default value
-  data?: string[][];  // Made data optional and added a default value
+// ✅ Table Wrapper Component
+export default function Table({ children }: { children: React.ReactNode }) {
+  return <table className="w-full border-collapse border border-gray-300">{children}</table>;
 }
 
-export const Table: React.FC<TableProps> = ({ headers = [], data = [] }) => {
-  return (
-    <table className="w-full border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-100">
-          {Array.isArray(headers) && headers.length > 0 ? (
-            headers.map((header, index) => <th key={index} className="border border-gray-300 px-4 py-2">{header}</th>)
-          ) : (
-            <th className="border border-gray-300 px-4 py-2">No Headers</th>
-          )}
-        </tr>
-      </thead>
-      <tbody>
-        {Array.isArray(data) && data.length > 0 ? (
-          data.map((row, rowIndex) => (
-            <tr key={rowIndex} className="hover:bg-gray-200">
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="border border-gray-300 px-4 py-2">{cell}</td>
-              ))}
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan={headers.length || 1} className="text-center py-4">
-              No data available
-            </td>
-          </tr>
-        )}
-      </tbody>
-    </table>
-  );
-};
+// ✅ Table Head Component
+export const TableHead: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <thead className="bg-gray-100">{children}</thead>
+);
 
-// Additional Table Components
-export const TableBody: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <tbody>{children}</tbody>;
-};
+// ✅ Table Header Component (Column Titles)
+export const TableHeader: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <th className="border border-gray-300 px-4 py-2">{children}</th>
+);
 
-export const TableCell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <td>{children}</td>;
-};
+// ✅ Table Body Component
+export const TableBody: React.FC<{ children: React.ReactNode }> = ({ children }) => <tbody>{children}</tbody>;
 
-export const TableHead: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <thead>{children}</thead>;
-};
+// ✅ Table Row Component
+export const TableRow: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <tr className="hover:bg-gray-200">{children}</tr>
+);
 
-export const TableHeader: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <th>{children}</th>;
-};
-
-export const TableRow: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <tr>{children}</tr>;
-};
+// ✅ Table Cell Component
+export const TableCell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <td className="border border-gray-300 px-4 py-2">{children}</td>
+);

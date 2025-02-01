@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Home, Users, Check, ChevronDown } from "lucide-react"
+import { ChevronLeft, ChevronRight, Home, FileText, Mail, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface SidebarProps {
@@ -32,10 +32,10 @@ export function Sidebar({ setActiveSection }: SidebarProps) {
             setActiveSection("management")
           }}
         >
-          <Users className="mr-2" />
+          <FileText className="mr-2" />
           {isExpanded && (
             <>
-              Internship
+              Internship Form
               <ChevronDown
                 className={`ml-auto transition-transform duration-200 ${isInternshipExpanded ? "rotate-180" : ""}`}
               />
@@ -48,8 +48,8 @@ export function Sidebar({ setActiveSection }: SidebarProps) {
             className="justify-start hover:bg-orange-200 transition-colors duration-200 pl-8 w-full"
             onClick={() => setActiveSection("internship-status")}
           >
-            <Check className="mr-2" />
-            Check Internship Status
+            <Mail className="mr-2" />
+            Internship Submissions
           </Button>
         )}
       </nav>
