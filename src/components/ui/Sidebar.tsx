@@ -1,9 +1,14 @@
 import { useState } from "react"
-import { Button } from "dash/components/ui/button"
-import { ChevronLeft, ChevronRight, Briefcase, Users } from "lucide-react"
+import { ChevronLeft, ChevronRight, Home, Users, Check, ChevronDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-export function Sidebar({ setActiveSection }) {
+interface SidebarProps {
+  setActiveSection: (section: string) => void;
+}
+
+export function Sidebar({ setActiveSection }: SidebarProps) {
   const [isExpanded, setIsExpanded] = useState(true)
+  const [isInternshipExpanded, setIsInternshipExpanded] = useState(false)
 
   return (
     <div className={`bg-gray-100 h-screen transition-all duration-300 ${isExpanded ? "w-64" : "w-16"} flex flex-col`}>
@@ -14,20 +19,41 @@ export function Sidebar({ setActiveSection }) {
         <Button
           variant="ghost"
           className="justify-start hover:bg-orange-200 transition-colors duration-200"
-          onClick={() => setActiveSection("jobs")}
+          onClick={() => setActiveSection("home")}
         >
-          <Briefcase className="mr-2" />
-          {isExpanded && "Jobs and Internships"}
+          <Home className="mr-2" />
+          {isExpanded && "Home"}
         </Button>
         <Button
           variant="ghost"
-          className="justify-start hover:bg-orange-200 transition-colors duration-200"
-          onClick={() => setActiveSection("management")}
+          className="justify-start hover:bg-orange-200 transition-colors duration-200 w-full"
+          onClick={() => {
+            setIsInternshipExpanded(!isInternshipExpanded)
+            setActiveSection("management")
+          }}
         >
           <Users className="mr-2" />
-          {isExpanded && "Management Hiring"}
+          {isExpanded && (
+            <>
+              Internship
+              <ChevronDown
+                className={`ml-auto transition-transform duration-200 ${isInternshipExpanded ? "rotate-180" : ""}`}
+              />
+            </>
+          )}
         </Button>
+        {isInternshipExpanded && isExpanded && (
+          <Button
+            variant="ghost"
+            className="justify-start hover:bg-orange-200 transition-colors duration-200 pl-8 w-full"
+            onClick={() => setActiveSection("internship-status")}
+          >
+            <Check className="mr-2" />
+            Check Internship Status
+          </Button>
+        )}
       </nav>
     </div>
   )
 }
+
