@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ChevronDown } from "lucide-react";
+
 
 // Dropdown options
 const internshipTypes = ["Web Development", "Data Science", "Cyber Security", "UI/UX Design"];
@@ -34,7 +34,8 @@ export function InternshipForm() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [, setError] = useState<string>(""); 
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,7 +63,7 @@ export function InternshipForm() {
         body: JSON.stringify(fullFormData),
       });
 
-      if (!response.ok) throw new Error("Failed to submit application");
+      if (!response.ok) throw ("Failed to submit application");
 
       alert("Application submitted successfully!");
       setFormData({
@@ -81,8 +82,8 @@ export function InternshipForm() {
         endDate: new Date(),
         message: "",
       });
-    } catch (err) {
-      setError("Submission failed. Please try again.");
+    } catch {
+      alert("Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -96,7 +97,7 @@ export function InternshipForm() {
           Accelerate Your Career with <span className="text-orange-500">Uptoskills</span> Internships
         </h1>
         <p className="bg-orange-100 text-orange-800 p-4 rounded-md w-full">
-          If anyone asks you to pay any kind of fee for this internship, inform us immediately. Don’t pay anything to anyone. UptoSkills doesn’t charge any fee for this internship.
+          If anyone asks you to pay any kind of fee for this internship, inform us immediately. Don&apos;t pay anything to anyone. UptoSkills doesn&apos;t charge any fee for this internship.
         </p>
       </div>
 
@@ -182,7 +183,12 @@ export function InternshipForm() {
             </div>
           </div>
 
-          <Textarea placeholder="Message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+          <Textarea
+  placeholder="Message"
+  value={formData.message}
+  onChange={(value: string) => setFormData({ ...formData, message: value })}/>
+
+
 
           <Button type="submit" className="bg-orange-500 hover:bg-orange-600">{loading ? "Submitting..." : "Submit"}</Button>
         </form>

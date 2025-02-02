@@ -2,9 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Table, { TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"; // ✅ Correct Imports
-
+interface Internship {
+  _id: string;
+  name: string;
+  email: string;
+  universityType: string;
+  branch: string;
+  qualification: string;
+  mobileNumber: string;
+  startDate: Date;
+  message: string;
+  appliedAt: Date;
+  status: string;
+  // Add other fields as needed
+}
 const InternshipStatus = () => {
-  const [internshipData, setInternshipData] = useState([]);
+  const [internshipData, setInternshipData] = useState<Internship[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -88,5 +101,24 @@ const InternshipStatus = () => {
     </div>
   );
 };
+export async function getStaticProps() {
+  try {
+    const res = await fetch("https://your-api.com/data");
+    const data = await res.json();
+
+    return {
+      props: { initialData: data },
+      revalidate: 10, // ✅ ISR: Revalidate every 10 seconds
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    return {
+      props: { initialData: [] },
+      revalidate: 10, // ✅ Ensures page regenerates even if error occurs
+    };
+  }
+}
+
 
 export default InternshipStatus;

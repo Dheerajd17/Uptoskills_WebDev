@@ -18,7 +18,7 @@ export function HomePage() {
                 <span className="text-orange-500">Unleash </span>
                 <span className="text-emerald-500">Your Career</span>
               </h1>
-              <p className="text-xl mb-8">India's No. 1 Tech Platform for Learn, Compete, Intern & Jobs!</p>
+              <p className="text-xl mb-8">India&apos;s No. 1 Tech Platform for Learn, Compete, Intern & Jobs!</p>
               <div className="flex gap-4">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
                   Hire From us
@@ -129,8 +129,8 @@ export function HomePage() {
 
       {/* Partners Section */}
       <section className="bg-orange-500 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="container mx-auto px-4 ">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 ">
             {[
               { name: "Google", logo: "https://logo.clearbit.com/google.com" },
               { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com" },
