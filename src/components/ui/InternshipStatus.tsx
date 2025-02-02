@@ -31,7 +31,7 @@ const InternshipStatus = () => {
         setInternshipData(data);
       } catch (err) {
         console.error("Error fetching data:", err);
-        setError("Error fetching data. Please try again.");
+        setError("Please fill the Internship form first.");
       } finally {
         setLoading(false);
       }
