@@ -12,6 +12,7 @@ export function HomePage() {
   const router = useRouter();
   return (
     <div className="flex-1">
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-white to-gray-50 py-16">
         <div className="container mx-auto px-4">

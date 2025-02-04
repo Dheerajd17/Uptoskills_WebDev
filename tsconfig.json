@@ -16,13 +16,20 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "compilerOptions": {
+          "jsx": "react-jsx"
+        }
       }
+      
     ],
     "baseUrl": "./",  // Set the baseUrl to the root of your project
     "paths": {
       "@/*": ["src/*"]  // This will map '@' to the 'src' folder
     }
   },
+  
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
