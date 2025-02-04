@@ -105,31 +105,15 @@ export async function getStaticProps() {
 
     return {
       props: { initialData: data },
-      revalidate: 10, // ✅ ISR: Revalidate every 10 seconds
+      revalidate: 10, 
     };
   } catch (error) {
     console.error("Error fetching data:", error);
 
     return {
       props: { initialData: [] },
-      revalidate: 10, // ✅ Ensures page regenerates even if error occurs
+      revalidate: 10,
     };
-    useEffect(() => {
-      const fetchApplications = async () => {
-        try {
-          const response = await fetch("http://your-api-endpoint.com/api/applications");
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          const data = await response.json();
-          console.log(data); // Check the response
-        } catch (error) {
-          console.error("Fetch error:", error);
-        }
-      };
-    
-      fetchApplications();
-    }, []);
     
   }
 }

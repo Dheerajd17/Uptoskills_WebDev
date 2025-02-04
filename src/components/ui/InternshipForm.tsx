@@ -84,7 +84,7 @@ export function InternshipForm() {
         endDate: new Date(),
         message: "",
       });
-    } catch (err) {
+    } catch {
       setError("Submission failed. Please try again.");
     } finally {
       setLoading(false);
