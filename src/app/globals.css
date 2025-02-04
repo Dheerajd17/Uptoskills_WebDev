@@ -86,3 +86,80 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* Add these styles to your global CSS */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 9999;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeOut 1s ease-in 2.5s forwards;
+}
+
+.success-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkmark {
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.checkmark path {
+  stroke: orange;
+  stroke-width: 4;
+  fill: none;
+}
+
+.success-message {
+  color: #4CAF50;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+}
+
+@keyframes checkmarkAppear {
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes textReveal {
+  from { max-width: 0; }
+  to { max-width: 300px; }
+}
+
+@keyframes fadeOut {
+  to {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+.active .checkmark {
+  animation: checkmarkAppear 0.5s ease-out forwards;
+}
+
+.active .success-message {
+  animation: textReveal 1s ease-out 0.5s forwards;
+}

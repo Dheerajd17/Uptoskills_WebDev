@@ -6,7 +6,6 @@ interface Internship {
   _id: string;
   name: string;
   email: string;
-  universityType: string;
   branch: string;
   qualification: string;
   mobileNumber: string;
@@ -24,7 +23,7 @@ const InternshipStatus = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/internships"); // ✅ Correct API URL
+        const response = await fetch("http://localhost:5000/api/internships"); 
         if (!response.ok) throw new Error("Failed to fetch data");
 
         const data = await response.json();
@@ -56,7 +55,6 @@ const InternshipStatus = () => {
             <TableRow>
               <TableHeader>Name</TableHeader>
               <TableHeader>Email</TableHeader>
-              <TableHeader>University Type</TableHeader>
               <TableHeader>Branch</TableHeader>
               <TableHeader>Mobile Number</TableHeader>
               <TableHeader>Qualification</TableHeader>
@@ -71,7 +69,6 @@ const InternshipStatus = () => {
               <TableRow key={item._id}>
                 <TableCell>{item.name || "N/A"}</TableCell>
                 <TableCell>{item.email || "N/A"}</TableCell>
-                <TableCell>{item.universityType || "N/A"}</TableCell>
                 <TableCell>{item.branch || "N/A"}</TableCell>
                 <TableCell>{item.mobileNumber || "N/A"}</TableCell>
                 <TableCell>{item.qualification || "N/A"}</TableCell>
@@ -117,6 +114,23 @@ export async function getStaticProps() {
       props: { initialData: [] },
       revalidate: 10, // ✅ Ensures page regenerates even if error occurs
     };
+    useEffect(() => {
+      const fetchApplications = async () => {
+        try {
+          const response = await fetch("http://your-api-endpoint.com/api/applications");
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          console.log(data); // Check the response
+        } catch (error) {
+          console.error("Fetch error:", error);
+        }
+      };
+    
+      fetchApplications();
+    }, []);
+    
   }
 }
 

@@ -1,5 +1,5 @@
 "use client"
-
+import Link from "next/link";
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -18,7 +18,7 @@ export function HomePage() {
                 <span className="text-orange-500">Unleash </span>
                 <span className="text-emerald-500">Your Career</span>
               </h1>
-              <p className="text-xl mb-8">India&apos;s No. 1 Tech Platform for Learn, Compete, Intern & Jobs!</p>
+              <p className="text-xl mb-8">India&apos;s Emerging Tech Platform for Learn, Compete, Intern & Jobs!</p>
               <div className="flex gap-4">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
                   Hire From us
@@ -29,47 +29,55 @@ export function HomePage() {
               </div>
             </div>
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-              <Card className="p-6 bg-gradient-to-br from-purple-100 to-blue-100">
-                <div className="flex items-center gap-4">
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <Rocket className="h-6 w-6 text-red-500" />
+              <Link href="/events" className="block transition-transform hover:scale-105">
+                <Card className="p-6 bg-gradient-to-br from-purple-100 to-blue-100">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-red-100 p-3 rounded-full">
+                      <Rocket className="h-6 w-6 text-red-500" />
+                    </div>
+                    <span className="text-orange-500 font-medium">Events</span>
                   </div>
-                  <span className="text-orange-500 font-medium">Events</span>
-                </div>
-              </Card>
-              <Card className="p-6 bg-gradient-to-br from-purple-100 to-blue-100">
-                <div className="flex items-center gap-4">
-                  <div className="bg-purple-100 p-3 rounded-full">
-                    <Briefcase className="h-6 w-6 text-purple-500" />
+                </Card>
+              </Link>
+              <Link href="/jobs" className="block transition-transform hover:scale-105">
+                <Card className="p-6 bg-gradient-to-br from-purple-100 to-blue-100">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-purple-100 p-3 rounded-full">
+                      <Briefcase className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <span className="text-purple-500 font-medium">Jobs</span>
                   </div>
-                  <span className="text-purple-500 font-medium">Jobs</span>
-                </div>
-              </Card>
-              <Card className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100">
-                <div className="flex items-center gap-4">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <Trophy className="h-6 w-6 text-blue-500" />
+                </Card>
+              </Link>
+              <Link href="/rewards" className="block transition-transform hover:scale-105">
+                <Card className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-blue-100 p-3 rounded-full">
+                      <Trophy className="h-6 w-6 text-blue-500" />
+                    </div>
+                    <span className="text-blue-500 font-medium">True Rewards</span>
                   </div>
-                  <span className="text-blue-500 font-medium">True Rewards</span>
-                </div>
-              </Card>
-              <Card className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100">
-                <div className="flex items-center gap-4">
-                  <div className="bg-emerald-100 p-3 rounded-full">
-                    <GraduationCap className="h-6 w-6 text-emerald-500" />
+                </Card>
+              </Link>
+              <Link href="/internships" className="block transition-transform hover:scale-105">
+                <Card className="p-6 bg-gradient-to-br from-blue-100 to-cyan-100">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-emerald-100 p-3 rounded-full">
+                      <GraduationCap className="h-6 w-6 text-emerald-500" />
+                    </div>
+                    <span className="text-emerald-500 font-medium">Internships</span>
                   </div>
-                  <span className="text-emerald-500 font-medium">Internships</span>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-white text-gray-800 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="bg-white text-gray-800 py-16 -mt-16 relative z-10">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-16">
             {[
               {
                 icon: GraduationCap,
@@ -155,4 +163,3 @@ export function HomePage() {
     </div>
   )
 }
-

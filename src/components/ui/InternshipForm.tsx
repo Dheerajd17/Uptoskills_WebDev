@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {  useEffect } from "react";
 
 
 // Dropdown options
@@ -32,6 +33,7 @@ export function InternshipForm() {
     endDate: new Date(),
     message: "",
   });
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [, setError] = useState<string>(""); 
@@ -63,9 +65,9 @@ export function InternshipForm() {
         body: JSON.stringify(fullFormData),
       });
 
-      if (!response.ok) throw ("Failed to submit application");
+      if (!response.ok) throw new Error("Failed to submit application");
 
-      alert("Application submitted successfully!");
+      setShowSuccess(true);
       setFormData({
         name: "",
         email: "",
@@ -82,12 +84,18 @@ export function InternshipForm() {
         endDate: new Date(),
         message: "",
       });
-    } catch {
-      alert("Submission failed. Please try again.");
+    } catch (err) {
+      setError("Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => setShowSuccess(false), 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -100,6 +108,18 @@ export function InternshipForm() {
           If anyone asks you to pay any kind of fee for this internship, inform us immediately. Don&apos;t pay anything to anyone. UptoSkills doesn&apos;t charge any fee for this internship.
         </p>
       </div>
+      {/* Success Animation Overlay */}
+      {showSuccess && (
+        <div className="overlay active">
+          <div className="success-container">
+            <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <path d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+            <div className="success-message">Successfully Submitted</div>
+          </div>
+        </div>
+      )}
+    
 
       <Card className="p-6 shadow-lg text-left">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Intern with UptoSkills</h2>
